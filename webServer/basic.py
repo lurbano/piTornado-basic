@@ -9,6 +9,6 @@ async def basicTimer(server, mins, secs):
         timeLeft -= 1
         m = timeLeft // 60
         s = timeLeft % 60
-        serv.write_message({"info": "timer", "m":m, "s":s})
+        server.write_message({"info": "timer", "m":m, "s":s})
         await asyncio.sleep(1)
     print("Timer Done.")
