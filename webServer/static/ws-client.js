@@ -27,6 +27,11 @@ $(document).ready(function(){
             if (sData.sensor !== 'undefined'){
               //console.log(sData.info + "|" + )
 
+              if (sData.info == 'hello'){
+                r = sData.reply.toString();
+                $("#timeLeft").html(r);
+              }
+
               //WHAT TO DO WHEN WE GET A MESSAGE FROM THE SERVER
               if (sData.info == 'timer'){
                 m = sData.m.toString();
@@ -44,6 +49,11 @@ $(document).ready(function(){
         };
 
         //MESSAGES TO SEND TO THE SERVER
+
+        $("#hello").click(function(){
+            let msg = '{"what": "hello"}';
+            ws.send(msg);
+        });
 
         $("#timer").click(function(){
             let m = $("#timerMin").val();
