@@ -164,7 +164,7 @@ We also need a method to deal with the response from the server. IN the ws.onmes
 ```js
 if (sData.info == 'hello'){
   r = sData.reply.toString();
-  $("#timeLeft").html(r);
+  $("#HelloResponse").html(r);
 }
 ```
 

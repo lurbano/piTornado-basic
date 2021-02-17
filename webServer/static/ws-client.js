@@ -29,7 +29,7 @@ $(document).ready(function(){
 
               if (sData.info == 'hello'){
                 r = sData.reply.toString();
-                $("#timeLeft").html(r);
+                $("#HelloResponse").html(r);
               }
 
               //WHAT TO DO WHEN WE GET A MESSAGE FROM THE SERVER
