@@ -24,7 +24,6 @@ import numpy as np
 from basic import *
 
 nPix = 20
-ledPin = board.D18
 
 # get number of pixels from the command line
 parser = argparse.ArgumentParser()
