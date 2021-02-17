@@ -36,12 +36,6 @@ if args.nPix:
 	except:
 		print("using default (20) pixels: -nPix 20")
 
-
-#Initialize neopixels
-ledPix = ledPixels(nPix, ledPin)
-
-#oled = oledU(128,32)
-
 #Tornado Folder Paths
 settings = dict(
 	template_path = os.path.join(os.path.dirname(__file__), "templates"),
