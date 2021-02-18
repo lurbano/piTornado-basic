@@ -139,17 +139,17 @@ sudo kill nnn
 
 
 # [EXAMPLE] Adding things to be controlled by the webpage
-Say you want to add a button that makes the LED's blue
+The code below shows the whole process for creating the Hello World button.
 
 ## Add hello world button
-*webServer/templates/index.html*: Add HTML for button and a span where we will put the response from the server.
+*webServer/templates/index.html*: Add HTML for a button (#hello) and a span (#HelloResponse) where we will put the response from the server.
 ```HTML
 <input type="button" id="hello" value="Hello World">
 <span id="HelloResponse"></span>
 ```
 
 ## Add javascript
-To listen for when someone clicks the blueButton:
+To listen for when someone clicks the Hello World button:
 *webserver/static/ws-client.js* near bottom of file
 ```js
 $("#hello").click(function(){
@@ -160,7 +160,19 @@ $("#hello").click(function(){
 
 Here we're sending the dict {"what": "hello"} to the server.
 
-We also need a method to deal with the response from the server. IN the ws.onmessage function add:
+
+## Have the server act
+It has to figure out what to do when it gets the message: msg = {"what": "hello"} in *webserver/server.py*. the write_message method sends the dictionary object `{"info": "hello", "reply":r}` back to the browser (client).
+```.py
+			if msg["what"] == "hello":
+				r = 'Say what?'
+				self.write_message({"info": "hello", "reply":r})
+```
+
+## Update the webpage
+
+Now we go back to the *webserver/static/ws-client.js* to add some code to deal with the response from the server. Inside the ws.onmessage function add:
+
 ```js
 if (sData.info == 'hello'){
   r = sData.reply.toString();
@@ -168,14 +180,15 @@ if (sData.info == 'hello'){
 }
 ```
 
+## Other examples
+The `Start Timer` button follows the same steps as the Hello World button, but in addition it:
 
-## Have the server act
-It has to figure out what to do when it gets the message: msg = {"what": "blueButton"} in *webserver/server.py* around line 76. Here it cancels anything already going on (ledPix.cancelTask) and calls the method .blue() from the ledPix instance of the ledPixels class (you'll most often need to add your own method (see next step)).
-```.py
-			if msg["what"] == "hello":
-				r = 'Say what?'
-				self.write_message({"info": "hello", "reply":r})
-```
+1) Collects information from two other inputs (minutes and seconds)
+
+2) Runs a timer function (`basicTimer`, which is imported from another file *basic.py*) asynchronously, so that it could be running but the server can still do other stuff.
+
+3) *basic.py* has the code for the `basicTimer` function.
+
 
 
 # Refs:
