@@ -180,7 +180,7 @@ if (sData.info == 'hello'){
 }
 ```
 
-## Other examples
+# Other examples
 The `Start Timer` button follows the same steps as the Hello World button, but in addition it:
 
 1) Collects information from two other inputs (minutes and seconds)
@@ -189,7 +189,7 @@ The `Start Timer` button follows the same steps as the Hello World button, but i
 
 3) *basic.py* has the code for the `basicTimer` function.
 
-
+The `Reboot Pi` button shows you how you could live dangerously and run terminal commands from your python script to, in this case, reboot the Pi.
 
 # Refs:
 OLED:
