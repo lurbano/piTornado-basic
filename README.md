@@ -101,7 +101,7 @@ sudo pip3 install tornado
 ### Starting server
 Go to the folder *~/piTornado/webServer/* and run the command
 ```console
-sudo python3 server.py
+python3 server.py
 ```
 
 ### The webpage
@@ -118,7 +118,7 @@ sudo nano /etc/rc.local
 
 ADD THE LINE (before `exit 0` ).
 ```
-sudo /usr/bin/python3 /home/pi/piTornado-basic/webServer/server.py  2> /home/pi/rpi-led-strip/error.log &
+/usr/bin/python3 /home/pi/piTornado-basic/webServer/server.py  2> /home/pi/rpi-led-strip/error.log &
 ```
 
 Save and exit (Ctrl-S and Ctrl-X) and then restart the Pi from the command line:
